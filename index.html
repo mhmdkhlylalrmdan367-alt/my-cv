@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>محمد خليل الرمضان - CV</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ============ متغيرات الألوان ============ */
+      :root {
+        --bg: #eef1f5;
+        --card: #ffffff;
+        --text: #2c3e50;
+        --text-soft: #475569;
+        --text-light: #94a3b8;
+        --border: #f0f3f7;
+        --tag-bg: #f1f5f9;
+        --tag-border: #e2e8f0;
+        --accent: #0ea5e9;
+        --accent-2: #14b8a6;
+        --shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      }
+
+      /* الوضع الليلي */
+      body.dark {
+        --bg: #0f172a;
+        --card: #1e293b;
+        --text: #f1f5f9;
+        --text-soft: #cbd5e1;
+        --text-light: #94a3b8;
+        --border: #334155;
+        --tag-bg: #334155;
+        --tag-border: #475569;
+        --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Cairo", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        padding: 16px;
+        font-size: 14px;
+        transition:
+          background 0.3s,
+          color 0.3s;
+      }
+
+      /* ============ أزرار التحكم ============ */
+      .controls {
+        max-width: 780px;
+        margin: 0 auto 14px;
+        display: flex;
+        justify-content: flex-end;
+        gap: 8px;
+      }
+
+      .btn {
+        font-family: inherit;
+        font-size: 12.5px;
+        font-weight: 600;
+        padding: 8px 14px;
+        border-radius: 20px;
+        border: none;
+        cursor: pointer;
+        transition: 0.2s;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, #14b8a6, #0ea5e9);
+        color: #fff;
+      }
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(14, 165, 233, 0.4);
+      }
+
+      .btn-ghost {
+        background: var(--card);
+        color: var(--text);
+        border: 1px solid var(--tag-border);
+      }
+      .btn-ghost:hover {
+        background: var(--tag-bg);
+      }
+
+      /* ============ الحاوية ============ */
+      .cv-container {
+        max-width: 780px;
+        margin: 0 auto;
+        background: var(--card);
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        padding: 28px 26px;
+        transition: background 0.3s;
+      }
+
+      /* ============ الهيدر ============ */
+      .header {
+        display: flex;
+        gap: 18px;
+        align-items: center;
+        border-bottom: 2px solid var(--border);
+        padding-bottom: 18px;
+        margin-bottom: 20px;
+      }
+
+      .avatar {
+        width: 84px;
+        height: 84px;
+        border-radius: 14px;
+        object-fit: cover;
+        border: 3px solid transparent;
+        background:
+          linear-gradient(var(--card), var(--card)) padding-box,
+          linear-gradient(135deg, #14b8a6, #0ea5e9) border-box;
+        flex-shrink: 0;
+      }
+
+      .header-info h1 {
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 2px;
+      }
+
+      .role {
+        color: var(--accent);
+        font-weight: 600;
+        font-size: 13px;
+        margin-bottom: 8px;
+      }
+
+      .contact {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 16px;
+        font-size: 12.5px;
+        color: var(--text-soft);
+      }
+
+      .links {
+        margin-top: 8px;
+        display: flex;
+        gap: 10px;
+      }
+
+      .links a {
+        font-size: 12px;
+        color: var(--accent);
+        text-decoration: none;
+        border: 1px solid var(--accent);
+        padding: 3px 10px;
+        border-radius: 20px;
+        transition: 0.2s;
+      }
+
+      .links a:hover {
+        background: var(--accent);
+        color: #fff;
+      }
+
+      /* ============ الأقسام ============ */
+      .section {
+        margin-bottom: 22px;
+      }
+
+      .section h2 {
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 12px;
+        padding-right: 10px;
+        border-right: 3px solid var(--accent-2);
+        line-height: 1.2;
+      }
+
+      .section p {
+        font-size: 13px;
+        color: var(--text-soft);
+      }
+
+      /* ============ العناصر ============ */
+      .item {
+        margin-bottom: 12px;
+      }
+
+      .item-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .item-head h3 {
+        font-size: 13.5px;
+        font-weight: 600;
+        color: var(--text);
+      }
+
+      .date {
+        font-size: 11.5px;
+        color: var(--text-light);
+        white-space: nowrap;
+      }
+
+      .sub {
+        font-size: 12.5px;
+        color: var(--text-light);
+      }
+
+      /* ============ أشرطة المهارات المتحركة ============ */
+      .skill-bar-group {
+        margin-bottom: 12px;
+      }
+
+      .skill-bar-head {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12.5px;
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 5px;
+      }
+
+      .skill-bar-track {
+        height: 8px;
+        background: var(--tag-bg);
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      .skill-bar-fill {
+        height: 100%;
+        width: 0;
+        border-radius: 10px;
+        background: linear-gradient(90deg, #14b8a6, #0ea5e9);
+        transition: width 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      /* ============ الوسوم ============ */
+      .skill-group {
+        margin-bottom: 12px;
+      }
+      .skill-group h3 {
+        font-size: 12.5px;
+        font-weight: 600;
+        color: var(--text-soft);
+        margin-bottom: 6px;
+      }
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .tag {
+        font-size: 11.5px;
+        background: var(--tag-bg);
+        color: var(--text);
+        padding: 4px 10px;
+        border-radius: 20px;
+        border: 1px solid var(--tag-border);
+      }
+
+      /* ============ Responsive ============ */
+      @media (max-width: 520px) {
+        body {
+          padding: 8px;
+          font-size: 13px;
+        }
+        .cv-container {
+          padding: 18px 16px;
+          border-radius: 8px;
+        }
+        .header {
+          flex-direction: column;
+          text-align: center;
+        }
+        .contact {
+          justify-content: center;
+        }
+        .links {
+          justify-content: center;
+        }
+        .item-head {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 2px;
+        }
+        .avatar {
+          width: 96px;
+          height: 96px;
+        }
+      }
+
+      /* ============ الطباعة ============ */
+      @media print {
+        body {
+          background: #fff;
+          padding: 0;
+        }
+        body.dark {
+          background: #fff;
+          color: #2c3e50;
+        }
+        .controls {
+          display: none !important;
+        }
+        .cv-container {
+          box-shadow: none;
+          border-radius: 0;
+        }
+        .links a {
+          border: none;
+          padding: 0;
+        }
+        .skill-bar-fill {
+          transition: none;
+        }
+        @page {
+          margin: 1cm;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- أزرار التحكم -->
+    <div class="controls">
+      <button class="btn btn-ghost" onclick="toggleDark()">
+        <span id="darkIcon">🌙</span> <span id="darkText">الوضع الليلي</span>
+      </button>
+      <button class="btn btn-primary" onclick="downloadPDF()">
+        📥 تحميل PDF
+      </button>
+    </div>
+
+    <div class="cv-container" id="cv">
+      <!-- Header -->
+      <header class="header">
+        <!-- 👇 ضع رابط صورتك هنا -->
+        <img
+          class="avatar"
+          id="avatar"
+          src="https://ui-avatars.com/api/?name=Mohammed+Ramadan&size=200&background=14b8a6&color=fff&bold=true"
+          alt="محمد خليل الرمضان"
+        />
+        <div class="header-info">
+          <h1>محمد خليل الرمضان</h1>
+          <p class="role">طالب هندسة — سنة رابعة</p>
+          <div class="contact">
+            <span>📱 +963938201176</span>
+            <span>✉️ mhmdkhlylalrmdan367@gmail.com</span>
+            <span>📍 ادلب , التح</span>
+          </div>
+          <div class="links">
+            <a href="#">LinkedIn</a>
+            <a href="#">GitHub</a>
+            <a href="#">Portfolio</a>
+          </div>
+        </div>
+      </header>
+
+      <!-- About -->
+      <section class="section">
+        <h2>نبذة عني</h2>
+        <p>
+          طالب هندسة في السنة الرابعة، شغوف بتطوير تطبيقات الويب والموبايل.
+          أمتلك خبرة عملية في بناء تطبيقات متكاملة باستخدام
+          <strong>React Native</strong> و <strong>React</strong> و
+          <strong>Laravel</strong>، مع التركيز على تقديم حلول برمجية نظيفة
+          وفعّالة.
+        </p>
+      </section>
+
+      <!-- Education -->
+      <section class="section">
+        <h2>التعليم</h2>
+        <div class="item">
+          <div class="item-head">
+            <h3>بكالوريوس هندسة</h3>
+            <span class="date">2026 – الآن</span>
+          </div>
+          <p class="sub">جامعة [ادلب] — السنة الرابعة</p>
+        </div>
+      </section>
+
+      <!-- Skills Bars -->
+      <section class="section">
+        <h2>المهارات التقنية</h2>
+
+        <div class="skill-bar-group">
+          <div class="skill-bar-head">
+            <span>React Native</span><span>90%</span>
+          </div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" data-width="90%"></div>
+          </div>
+        </div>
+
+        <div class="skill-bar-group">
+          <div class="skill-bar-head">
+            <span>React.js</span><span>85%</span>
+          </div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" data-width="85%"></div>
+          </div>
+        </div>
+
+        <div class="skill-bar-group">
+          <div class="skill-bar-head"><span>Laravel</span><span>80%</span></div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" data-width="80%"></div>
+          </div>
+        </div>
+
+        <div class="skill-bar-group">
+          <div class="skill-bar-head">
+            <span>JavaScript</span><span>88%</span>
+          </div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" data-width="88%"></div>
+          </div>
+        </div>
+
+        <div class="skill-bar-group">
+          <div class="skill-bar-head">
+            <span>MySQL / Firebase</span><span>75%</span>
+          </div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" data-width="75%"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tools -->
+      <section class="section">
+        <h2>الأدوات</h2>
+        <div class="tags">
+          <span class="tag">Expo</span>
+          <span class="tag">React Navigation</span>
+          <span class="tag">Git</span>
+          <span class="tag">REST APIs</span>
+          <span class="tag">Postman</span>
+          <span class="tag">PHP</span>
+          <span class="tag">HTML/CSS</span>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section class="section">
+        <h2>المشاريع</h2>
+
+        <div class="item">
+          <div class="item-head">
+            <h3>تطبيق موبايل — React Native</h3>
+            <span class="date">2024</span>
+          </div>
+          <p>تطوير تطبيق متكامل مع واجهات تفاعلية وربطه بـ REST API.</p>
+        </div>
+
+        <div class="item">
+          <div class="item-head">
+            <h3>لوحة تحكم — Laravel + React</h3>
+            <span class="date">2024</span>
+          </div>
+          <p>نظام إدارة كامل مع مصادقة، صلاحيات، ولوحة تحكم ديناميكية.</p>
+        </div>
+      </section>
+
+      <!-- Languages -->
+      <section class="section">
+        <h2>اللغات</h2>
+        <div class="tags">
+          <span class="tag">العربية — الأم</span>
+          <span class="tag">الإنجليزية — جيد جداً</span>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============ مكتبة html2pdf لتحميل PDF ============ -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <script>
+      /* ============ 1. تحميل الصورة الشخصية من جهازك ============ */
+      // اضغط على الصورة لاختيار صورة من جهازك (بديل: عدّل src مباشرة)
+      document.getElementById("avatar").addEventListener("click", function () {
+        const input = document.createElement("input");
+        input.type = "file";
+        input.accept = "image/*";
+        input.onchange = (e) => {
+          const file = e.target.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = (ev) => {
+              document.getElementById("avatar").src = ev.target.result;
+            };
+            reader.readAsDataURL(file);
+          }
+        };
+        input.click();
+      });
+
+      /* ============ 2. أشرطة المهارات المتحركة ============ */
+      window.addEventListener("load", () => {
+        setTimeout(() => {
+          document.querySelectorAll(".skill-bar-fill").forEach((bar) => {
+            bar.style.width = bar.dataset.width;
+          });
+        }, 300);
+      });
+
+      /* ============ 3. الوضع الليلي ============ */
+      function toggleDark() {
+        document.body.classList.toggle("dark");
+        const isDark = document.body.classList.contains("dark");
+        document.getElementById("darkIcon").textContent = isDark ? "☀️" : "🌙";
+        document.getElementById("darkText").textContent = isDark
+          ? "الوضع النهاري"
+          : "الوضع الليلي";
+        localStorage.setItem("cvDark", isDark ? "1" : "0");
+      }
+
+      // استرجاع التفضيل المحفوظ
+      if (localStorage.getItem("cvDark") === "1") {
+        document.body.classList.add("dark");
+        document.getElementById("darkIcon").textContent = "☀️";
+        document.getElementById("darkText").textContent = "الوضع النهاري";
+      }
+
+      /* ============ 4. تحميل PDF مباشر ============ */
+      function downloadPDF() {
+        const element = document.getElementById("cv");
+        const opt = {
+          margin: 0,
+          filename: "Mohammed_Ramadan_CV.pdf",
+          image: { type: "jpeg", quality: 0.98 },
+          html2canvas: { scale: 2, useCORS: true, backgroundColor: "#ffffff" },
+          jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+        };
+        html2pdf().set(opt).from(element).save();
+      }
+    </script>
+  </body>
+</html>
